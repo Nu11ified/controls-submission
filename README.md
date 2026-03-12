@@ -81,10 +81,10 @@ pip install -r requirements.txt
 
 ### Download the Data
 
-The driving segments (~1.2GB) aren't included in this repo. Grab them from comma's original repo:
+The driving segments (~1.2GB, 20k CSV files) aren't included in this repo. Clone comma's original repo and copy the data folder:
 
 ```bash
-git clone --depth 1 https://github.com/commaai/controls_challenge.git /tmp/cc
+git clone https://github.com/commaai/controls_challenge.git /tmp/cc
 cp -r /tmp/cc/data ./data
 rm -rf /tmp/cc
 ```
@@ -128,8 +128,9 @@ It'll work on Colab but will be slow (2 cores on free tier). If you go this rout
 !git clone https://github.com/Nu11ified/controls-submission.git
 %cd controls-submission
 !pip install -r requirements.txt
-!git clone --depth 1 https://github.com/commaai/controls_challenge.git /tmp/cc
+!git clone https://github.com/commaai/controls_challenge.git /tmp/cc
 !cp -r /tmp/cc/data ./data
+!rm -rf /tmp/cc
 !python eval.py --model_path ./models/tinyphysics.onnx --data_path ./data --num_segs 100 --test_controller mpc4 --baseline_controller pid
 ```
 
