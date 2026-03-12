@@ -107,19 +107,6 @@ python eval.py --model_path ./models/tinyphysics.onnx --data_path ./data --num_s
 
 This generates `report.html` which you can submit to [comma's form](https://forms.gle/US88Hg7UR6bBuW3BA).
 
-### Runtime Expectations
-
-Each segment takes ~8 minutes on a single core (the CEM runs the ONNX model hundreds of times per segment). The eval script parallelizes across cores automatically:
-
-| Cores | 100 segs | 5000 segs |
-|-------|----------|-----------|
-| 4 | ~3.5 hrs | ~7 days |
-| 10 | ~1.5 hrs | ~3 days |
-| 16 | ~1 hr | ~40 hrs |
-| 32 | ~30 min | ~20 hrs |
-
-For the full 5000-segment eval, a cloud instance with 16-32 cores is recommended.
-
 ### Google Colab
 
 It'll work on Colab but will be slow (2 cores on free tier). If you go this route:
